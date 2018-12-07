@@ -1,0 +1,37 @@
+footer{
+    background:#00c65d;
+    margin-top: 10px;
+}
+/*我的承诺div*/
+footer>div.container>div{
+    display:flex;
+    justify-content: space-around;
+}
+div.my_promise{
+     color:#fff;
+    height:200px;
+}
+div.my_promise>div{
+    text-align: center;
+    line-height:80px;
+}
+div.my_promise>div>div:first-child{
+    width:80px;height:80px;
+}
+/*指南*/
+div.msg_guide>ul{
+    list-style: none;
+}
+div.msg_guide>ul>li:first-child{
+    font-size:22px;
+    margin-bottom:8px;
+}
+div.msg_guide>ul>li{
+    color:rgba(255,255,255,0.6)
+}
+div.msg_guide>ul>li>a{
+    color:rgba(255,255,255,0.6)
+}
+div.msg_guide>ul>li>a:hover{
+    color:rgba(255,255,255,1)
+}

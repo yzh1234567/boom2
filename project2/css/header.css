@@ -1,0 +1,161 @@
+/*定义盒子my_header_top的样式*/
+header>div.my_header_top{
+    border-botton:1px solid #ddd;
+    background:#e3e4e5;
+    height:40px;
+    color:#999;
+}
+header>div.my_header_top>div.container,header>div.my_header_top>div.container>div.t-right>ul{
+    justify-content: space-between;
+    display:flex;
+}
+header>div.my_header_top>div.container>div.t-left>span,header>div.my_header_top>div.container>div.t-right>ul>li{
+    line-height:40px;
+}
+/*顶部a标签文字颜色、样式*/
+header div.t-right li a{
+    color:#999;
+}
+header div.t-right li a:hover{
+    color:#f70738;
+}
+/*a标签之间竖线的样式*/
+li.line{
+    border-right:1px solid #999;
+    height:18px;
+    margin-top: 11px;
+}
+header div.t-right li.login>a,header div.t-right li.free_register>a{
+    margin:0 10px;
+}
+li.my_order>div:first-child>a,li.customer_service>div:first-child>a,li.internet_nav>div:first-child>a{
+    margin-left:10px;
+}
+/*a标签的下拉框的样式*/
+li.my_order>div:first-child>b,li.customer_service>div:first-child>b{
+    display:inline-block;
+    border-top:5px solid #999;
+    border-bottom:5px solid #e3e4e5;
+    border-left:5px solid #e3e4e5;
+    border-right:5px solid #e3e4e5;
+    margin-right:10px;
+}
+li.internet_nav>button{
+    border:0;
+    background:#e3e4e5;
+    color:#999;
+    margin-left:10px;
+}
+/*a标签鼠标悬停的样式*/
+li.my_order,li.customer_service{
+    position:relative;
+}
+li.my_order:hover>div:last-child,li.customer_service:hover>div:last-child{
+    display:block;
+}
+li.my_order>div:last-child {
+    float:left;
+    width:188px;
+    border:1px solid;
+    position:absolute;
+    top:40px;left:-73px;
+    display:none;
+    border-radius:5px;
+}
+li.customer_service>div:last-child{
+    float:left;
+    width:198px;
+    border:1px solid;
+    position:absolute;
+    top:40px;left:-99px;
+    display:none;
+    border-radius:5px;
+}
+li.my_order>div:last-child::after，li.customer_service>div:last-child::after{
+    content:"";
+    display:block;
+    clear:both;
+}
+li.my_order>div:last-child>ul,li.customer_service>div:last-child>ul{
+    float:left;
+    margin-left:18px;
+}
+/*底部样式*/
+  header>div.my_header_bottom{
+      margin-top:40px;
+      height:200px;
+  }
+  /*底部左边样式*/
+div.my_bottom_left{
+    text-align:center;
+}
+div.my_bottom_left>h6{
+    margin-top:10px;
+}
+div.my_bottom_left>a{
+    font-size: 18px;
+}
+img.my_logo{
+    width:100px;
+}
+/*底部中间样式*/
+div.my_bottom_middle{
+    text-align: center;
+}
+div.my_header_bottom input.search{
+    border:3px solid #00c65d;
+    width:400px;height:50px;
+    padding-left:10px;
+    line-height:200px;
+}
+div.my_header_bottom input.search:focus{
+    outline:none;
+}
+div.my_header_bottom button.search_btn{
+    height:50px;width:70px;
+    border:3px solid #00c65d;
+    color:#fff;
+    background:#00c65d;
+    margin-top:75px;
+    margin-left:-5px;
+}
+div.my_bottom_middle>div:last-child{
+     width:420px;
+    margin-left:80px;
+}
+div.my_bottom_middle>div:last-child>ul{
+    display:flex;
+    justify-content: space-around;
+}
+/*底部右边样式*/
+div.my_bottom_right>div{
+     background:#F9F9F9;
+     border:1px solid #DFDFDF;
+     height:50px;
+    line-height:50px;
+    margin-top:75px;
+    text-align: center;
+    position:relative;
+}
+div.my_bottom_right>div>img{
+    margin-right:5px;
+    margin-top:-5px;
+}
+div.my_bottom_right>div>input{
+    width:30px;height:30px;
+    border-radius: 50%;
+    text-align:center;
+    background:#f10215;
+    color:#fff;
+    border:0;
+    position:absolute;
+    top:-15px;right:-15px;
+}
+
+
+
+
+
+
+
+
