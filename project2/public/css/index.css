@@ -1,0 +1,151 @@
+div.container{
+     width:1200px;
+	 margin:0 auto;
+}
+div.section_top_nav{
+    margin-top:20px;
+}
+div.section_top_nav>ul>li.active{
+    background:#00c65d;
+}
+/*顶部轮播图*/
+/*1、图片轮播*/
+div.carousel>div.carousel-inner>div.carousel-item>img{
+    width:100%;
+}
+/*导航指示符*/
+div.carousel>ul li{
+    width:16px;
+    height:16px;
+    border-radius:50%;
+    background:#aaaaaa;
+}
+div.carousel>ul>li.active{
+    background:#00c65d;
+    width:40px;
+    height:16px;
+    border-radius:8px;
+}
+/*左右耳朵*/
+div.carousel>button{
+    border:0;
+    width:2.5%;
+    height:10%;
+    top:45%;
+    border-radius:8%;
+}
+/*F1_product顶部title*/
+div.F1_product>div.title{
+    width:100%;
+    height:99px;
+    background:#00c65d;
+    color:#f0f0f0;
+    font-size:36px;
+    text-align: center;
+    line-height:99px;
+    margin:10px 0;
+}
+/*product_detail的样式*/
+div.product_detail{
+    display:flex;
+    flex-flow: wrap;
+}
+div.product_detail>div.F1{
+    width:25%;
+}
+div.product_detail>div{
+    border:2px solid #00c65d;
+}
+/*product的照片样式*/
+div.F1_product1>a.product>img{
+    width:100%;
+}
+/*价格的样式*/
+p.price{
+    display: flex;
+    justify-content: space-around;
+    margin:6px 0;
+    font-size:18px;
+}
+p.price>span:first-child{
+    color:#f70738;
+}
+p.price>span:last-child{
+    color:#999;
+    text-decoration: line-through;
+}
+/*产品detail的样式*/
+p.detail{
+    height:45px;
+    margin:6px 0;
+    margin-left:5px;
+}
+div.F1_product1>div{
+    display:flex;
+    flex-flow: wrap;
+    margin-left:5px;
+}
+div.F1_product1>div>p{
+    margin:0 10px 0 0;
+}
+div.F1_product1>div>span{
+    display:inline-block;
+    width:30px;
+    user-select:none;
+    height:30px;
+    background:#eee;
+    line-height:30px;
+    text-align:center;
+    color:#111;
+    font-size:30px;
+}
+div.F1_product1>div>span:hover{
+    cursor:pointer;
+}
+div.F1_product1>div>input.count{
+    border:0;
+    width:45px;
+    height:30px;
+    text-align:center;
+    line-height:30px;
+    font-size:24px;
+}
+div.F1_product1>div>button.shopping_car{
+    width:90%;
+    height:30px;
+    background:#f70738;
+    color:#fff;
+    border:0;
+    text-align:center;
+    line-height:30px;
+    margin:10px auto 10px auto;
+
+}
+/*F2样式*/
+div.product_detail>div.F2{
+    width:20%;
+}
+div.F1_product1>button{
+    width:100%;
+    height:30px;
+    background:#f70738;
+    color:#fff;
+    border:0;
+    text-align:center;
+    line-height:30px;
+    margin:10px 0;
+}
+/*精品肉质优选*/
+
+#meat1>div.carousel-inner>div.carousel-item>div.F3{
+    display:flex;
+    justify-content: space-around;
+    border:2px dashed #00c65d;
+}
+div.F3>div{
+    width:20%;
+}
+/*#my_footer的样式*/
+#my_footer{
+    margin-top:10px;
+}

@@ -1,0 +1,39 @@
+div.my_animation{
+    width:100%;
+    min-height: 80vh;
+    margin: 0;
+    overflow: hidden;
+    display: flex;
+    background-image:linear-gradient(to bottom,  #0782ed, rgba(256, 256, 256, 0), #185719a1);
+    position:relative;
+}
+div.field{
+    display:flex;
+    align-items: flex-end;
+    max-width: 100%;
+    justify-content: space-around;
+}
+  div.grass{
+    width: 10px;
+    height: 150px;
+    background: linear-gradient(to bottom, transparent, rgba(0, 0, 0, 0.3)), linear-gradient(to right,rgba(0,198,93,0.9), rgba(0,210,90,0.9), rgba(0,198,93, 0.9));
+    border-radius: 10px/100%;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    display: inline-flex;
+    transition: 1s;
+    transform-origin: bottom center;
+    animation: move 3.414s ease-in-out alternate infinite;
+    filter: hue-rotate(-43deg);
+    box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.2);
+}
+@keyframes move {
+    30% {
+        transform: rotate(-12deg);
+    }
+    60% {
+        transform: rotate(2deg);
+    }
+}
+
+

@@ -1,0 +1,48 @@
+section>div.reg_top{
+    position:relative;
+}
+/*µÇÂ¼¿òÑùÊ½*/
+form.my_register{
+    width:100%;
+    position:absolute;
+    top:36%;
+}
+ul.register{
+    list-style: none;
+    margin-left:40%;
+}
+ul.register>li>span:first-child{
+    display:inline-block;
+    width: 120px;height:30px;
+    text-align: right;
+}
+ul.register>li{
+    margin-top:10px;
+}
+ul.register>li>input{
+    padding-left: 10px;
+    border:none;
+    font-size: 14px;
+    width:220px;height:34px;
+    line-height:34px;
+}
+ul.register>li.reg_item5>input{
+    width:120px;
+}
+ul.register>li.reg_item5>button{
+    height:34px;
+    line-height:34px;
+    border:0;
+}
+ul.register>li>span:last-child{
+    font-size:14px;
+    color:#f70738;
+}
+ul.register>li.reg_item7>button{
+    text-align:center;
+    width:160px;
+    height:40px;
+    line-height:40px;
+    font-size:18px;
+    margin-left:150px;
+}

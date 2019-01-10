@@ -1,0 +1,188 @@
+<!doctype html>
+<html>
+    <head>
+		    <meta charset="utf-8">
+				<title></title>
+		</head>
+		<body>
+		  <header></header>
+			<section>
+			  <form action="/user/register" method="post">
+				      <table>
+							    <tr>
+									   <td>
+										    <label for="text1">用户名:</label>
+										 </td>
+								     <td>
+										    <input type="text" id="text1" name="uname" onfocus="uname_focus()" onblur="uname_blur()" placeholder="请设置用户名">
+												<span id="s1"></span>
+										 </td>
+									</tr>
+									<tr>
+									   <td>
+										     <label for="password1">密码:</label>
+										 </td>
+										 <td>
+										    <input type="password" id="password1" name="upwd" onfocus="upwd_focus()" onblur="upwd_blur()" placeholder="请设置密码">
+												 <span id="s2"></span>
+										 </td>
+									</tr>
+									<tr>
+									   <td>
+										     <label for="password1">确认密码:</label>
+										 </td>
+										 <td>
+										    <input type="password" id="password2" name="upwd1" onfocus="upwd1_focus()" onblur="upwd1_blur()" placeholder="请重复密码">
+												 <span id="s7"></span>
+										 </td>
+									</tr>
+									<tr>
+									   <td>
+										     <label for="tel1">手机号码:</label> 
+										 </td>
+										 <td>
+										     <input type="tel" id="tel1" name="phone" onfocus="phone_focus()" onblur="phone_blur()">
+												 <span id="s3"></span>
+										 </td>
+									</tr>
+									<tr>
+									    <td>
+											    <label for="">性别:</label>
+											</td>
+											<td>
+											    <input type="radio" name="sex" id="radio1" value="0" onclick="get_sex()">男
+													<input type="radio" name="sex" id="radio2" value="1" onclick="get_sex()">女
+													<span id="s4">性别必须勾选</span>
+											</td>
+									</tr>
+									<tr>
+									    <td>
+											   <label for="mail1">电子邮箱:</label>
+											</td>
+									    <td>
+											   <input type="email" name="email" id="email1" onfocus="email_focus()" onblur="email_blur()" >
+												 <span id="s5"></span>
+											</td>
+									</tr>
+									<tr>
+									   <td colspan="2">
+										      <button type="button" onclick="register()">注册</button>
+													<button type="reset">重置</button>
+													<span id="s6"></span>
+										 </td>
+									</tr>
+							</table>
+				</form>
+				</section>
+				<footer></footer>
+		</body>
+		<script>
+		// 创建一个变量isright1-6，来判断提交的数据是否满足规则，满足规则(ture)才被提交
+		      var isright1=false;
+					var isright2=false;
+					var isright3=false;
+					var isright4=false;
+					var isright5=false;
+					var isright6=false;
+		//验证注册框中的输入信息是否符合规则
+		     function uname_focus(){
+				    s1.innerHTML="用户名不能超过12个字符,且开头不能是数字";
+				 };
+				 function uname_blur(){
+				     var xhr=new XMLHttpRequest();
+						 xhr.onreadystatechange=function(){
+						     if(xhr.status==200&&xhr.readyState==4){
+								        var result=xhr.responseText;
+												if(result==0){s1.innerHTML="用户名不能为空";isright1=false;}
+												else if(result==1){s1.innerHTML="用户名被占用";isright1=false;}
+												else if(result==2){s1.innerHTML="用户名合法";isright1=true;}
+												else if(result==3){s1.innerHTML="用户名不满足条件";isright1=false;}
+								 }
+						 };
+						 xhr.open("post","/user/uname",true);
+						 xhr.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
+						 xhr.send("uname="+text1.value);
+				 };
+				 function upwd_focus(){
+				    s2.innerHTML="密码不能为空";
+				 };
+				 function upwd_blur(){
+				     var str=password1.value;
+						 var str1=/^[a-xA-X.;?!@~#$%<>+=-]{1}[\w.;?!@~#$%<>+=-]{5,19}$/;
+						 if(!str){s2.innerHTML="密码不能为空";isright2=false;}
+						   else if(str1.test(str)){s2.innerHTML="密码合法";isright2=true;}
+							    else{s2.innerHTML="密码不合法";isright2=false;}
+				 };
+        function upwd1_focus(){
+				      s7.innerHTML="重复密码不能为空";
+				}
+				function upwd1_blur(){
+				     var str=password1.value;
+						 var str1=password2.value;
+						 if(str1==str){s7.innerHTML="重复密码正确";isright3=true;}
+						     else{s7.innerHTML="重复密码不正确";isright3=false;}
+				};
+        function phone_focus(){
+				    s3.innerHTML="手机号码不能为空";
+				};
+				function phone_blur(){
+				    var xhr=new XMLHttpRequest();
+						xhr.onreadystatechange=function(){
+						    if(xhr.status==200&&xhr.readyState==4){
+								      var result=xhr.responseText;
+                      if(result==0){s3.innerHTML="手机号码不能为空";isright4=false;}
+											else if (result==1){s3.innerHTML="手机号码已经注册";isright4=false;}
+											  else if(result==2) {s3.innerHTML="手机号码正确";isright4=true;}
+												else{s3.innerHTML="请输入正确的手机号码";isright4=true;}
+								}
+						};
+						xhr.open("post","/user/phone",true);
+						xhr.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
+						xhr.send("phone="+tel1.value)
+				};
+        function get_sex(){
+				    if(radio1.checked){s4.innerHTML="性别已选择";isright5=true; };
+						if(radio2.checked){s4.innerHTML="性别已选择";isright5=true;};
+				};
+				function email_focus(){
+				    s5.innerHTML="email必须是字母或数字开头,且总长度不超过20位的字符串"; 
+				};
+				function email_blur(){
+				    var str=email1.value;
+						var str1=/^[0-9a-xA-X][\w-.]{0,19}@[0-9a-xA-X][\w.-]+.[a-xA-X]{2,14}$/;
+						if(!str){s5.innerHTML="邮箱不能为空";isright6=false;}
+						else if(str1.test(str)){s5.innerHTML="邮箱正确";isright6=true;}
+						else{s5.innerHTML="邮箱不正确";isright6=false;}
+				};
+	//给后台提交注册信息
+				function register(){
+				    if(isright1==true&&isright2==true&&isright3==true
+						&&isright4==true&&isright5==true&&isright6==true){
+						     var xhr=new XMLHttpRequest();
+								 xhr.onreadystatechange=function(){
+								     if(xhr.status==200&&xhr.readyState==4){
+										      var result=xhr.responseText;
+													s6.innerHTML=result;
+										 }
+								 };
+							  xhr.open("post","/user/register",true);
+                xhr.setRequestHeader("content-Type","application/x-www-form-urlencoded");
+								var str1=text1.value;
+								var str2=password1.value;
+								var str3=tel1.value;
+								if(radio1.checked){ str4=radio1.value;}
+								else if(radio2.checked){str4=radio2.value};
+								var str5=email1.value;
+								var formData=str1+"&upwd="+str2+"&phone="+str3+"&sex="+str4+"&email="+str5;
+								xhr.send("uname="+formData);
+						}else{
+						       if(isright1==false){s6.innerHTML="用户名不正确";return}
+									 if(isright2==false){s6.innerHTML="密码不正确";return}
+									 if(isright3==false){s6.innerHTML="重复密码不正确";return}
+									 if(isright4==false){s6.innerHTML="电话号码不正确";return}
+									 if(isright1==false){s6.innerHTML="性别不正确";return}
+									 if(isright1==false){s6.innerHTML="电子邮箱不正确";return}
+						}
+				};
+		</script>
+</html>

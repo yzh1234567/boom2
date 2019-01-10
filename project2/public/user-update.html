@@ -1,0 +1,104 @@
+<!doctype html>
+<html>
+  <head>
+     <meta charset="utf-8">
+     <title></title>
+  </head>
+  <body onload="getMsg()">
+	  <table>
+		  <tr>
+			    <td colspan="2">
+					    <input type="hidden" name="uid" id="h1">
+					</td>
+			</tr>
+			<tr>
+			    <td>用户名:</td>
+					<td>
+					    <input type="text" name="uname" id="text1">
+					</td>
+			</tr>
+			<tr>
+			    <td>密码:</td>
+					<td>
+					     <input type="text" name="upwd" id="pwd1">
+					</td>
+			</tr>
+			<tr>
+			    <td>性别:</td>
+					<td>
+					      <input type="radio" name="sex" id="radio1" value="0">男
+								<input type="radio" name="sex" id="radio2" value="1">女
+					</td>
+			</tr>
+			<tr>
+			    <td>手机号码:</td>
+					<td>
+					      <input type="tel" name="phone" id="phone1">
+					</td>
+			</tr>
+			<tr>
+			    <td>电子邮箱:</td>
+					<td>
+					      <input type="email" name="email" id="email1">
+					</td>
+			</tr>
+			<tr>
+			    <td>生日:</td>
+					<td>
+					      <input type="text" name="birthday" id="date">
+					</td>
+			</tr>
+			<tr>
+			    <td colspan="2" >
+					      <input type="button" onclick="sendMsg()" value="更新">
+					</td>
+			</tr>
+		</table> 
+  </body>
+	<script>
+	     function getMsg(){
+	          var urlParams= new URLSearchParams(location.search);
+						var user_uid=urlParams.get("uid");
+						var xhr= new XMLHttpRequest();
+						xhr.onreadystatechange=function(){
+						     if(xhr.status==200&&xhr.readyState==4){
+								       var result=xhr.responseText;
+											 if(result==0){alert("更新失败");}
+											    else{
+														result=JSON.parse(result);
+													  h1.value=result[0].uid;
+                            text1.value=result[0].uname;
+														pwd1.value=result[0].upwd;
+														if(radio1.value==result[0].sex){radio1.checked="checked"};
+														if(radio2.value==result[0].sex){radio2.checked="checked"};
+														phone1.value=result[0].phone;
+														email1.value=result[0].email;
+														date.value=result[0].birthdate;
+													}
+								 }
+						};
+						xhr.open("get","/user/list?uid="+user_uid,true);
+						xhr.send(null);
+			 };
+			 function sendMsg(){
+			        var xhr= new XMLHttpRequest();
+							xhr.onreadystatechange=function(){
+							      if(xhr.status==200&&xhr.readyState==4){
+										    var result=xhr.responseText;
+												if(result==0){
+												    alert("更新成功");
+                           window.location.href="http://www.localhost:3000/user-admin.html";
+												}else if(result==1){alert("更新失败");}
+										}
+							};
+							xhr.open("post","/user/update",true);
+							
+							if(radio1.checked){$sex=radio1.value};
+							if(radio2.checked){$sex=radio2.value};
+							var data="uid="+h1.value+"&uname="+text1.value+"&upwd="+pwd1.value+"&phone="
+							+phone1.value+"&sex="+$sex+"&email="+email1.value+"&birthday="+date.value;
+							xhr.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
+						  xhr.send(data);
+			 };
+	</script>
+</html>

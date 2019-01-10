@@ -1,0 +1,50 @@
+footer{
+    background:#00c65d;
+}
+/*我的承诺div*/
+footer>div.container>div{
+    display:flex;
+    justify-content: space-around;
+}
+div.my_promise{
+     color:#fff;
+    height:200px;
+}
+div.my_promise>div{
+    text-align: center;
+    line-height:80px;
+}
+div.my_promise>div>div:first-child{
+    width:80px;height:80px;
+    border:2px solid #1ad669;
+    border-radius:33%;
+    margin-top:10px;
+    margin-left:auto;
+    margin-right:auto;
+    font-size:42px;
+}
+/*信息指南*/
+div.msg_guide>ul{
+    list-style: none;
+}
+div.msg_guide1>ul>li:first-child{
+    font-size:22px;
+    margin-bottom:8px;
+}
+div.msg_guide>ul>li{
+    color:rgba(255,255,255,0.6)
+}
+div.msg_guide>ul>li>a{
+    color:rgba(255,255,255,0.6)
+}
+div.msg_guide>ul>li>a:hover{
+    color:rgba(255,255,255,1)
+}
+/*信息指南2*/
+div.msg_guide2>ul{
+    display: flex;
+    justify-content: center;
+}
+div.msg_guide2>ul>li>span{
+    margin:0 8px 0 5px;
+}

@@ -1,0 +1,57 @@
+<!doctype html>
+<html>
+   <head>
+       <meta charset="utf-8">
+       <title></title>
+    </head>
+    <body>
+		    <table> 
+				  <tr>
+					   <td>用户名</td>
+	           <td>
+						     <input type="text" name="uname" id="text1" 
+						      placeholder="请输入用户名/手机号码/电子邮箱">
+						 </td>
+						<span id="s1"></span>
+					</tr>
+					<tr>
+					   <td>密码</td>
+			       <td>
+						     <input type="password" name="upwd" id="password1">
+						 </td>
+					</tr>
+						<span id="s2"></span>
+					<tr>
+					   <td>
+						     <input type="checkbox">记住密码
+						 </td>
+						 <td>
+						     <a href="#">忘记密码</a>
+						 </td>
+					</tr>
+						<tr>
+						   <td colspan="2">
+							    <input type="button" value="登陆" onclick="login()" >
+							 </td>
+						</tr>
+	      </table>
+    </body>
+		<script>
+		    function login(){
+				    var xhr=new XMLHttpRequest();
+						xhr.onreadystatechange=function(){
+						     if(xhr.status==200&&xhr.readyState==4){
+								      var result=xhr.responseText;
+											if(result==0){s1.innerHTML="请输入用户名后再登陆";}
+											  else if(result==1){s2.innerHTML="请输入密码后再登陆"}
+												   else if(result==3){s3.innerHTML="用户名否则密码有误"}
+								 };
+						};
+						xhr.open("post","/user/login",true);
+						var user_uname=text1.value;
+						var user_upwd=password1.value;
+            xhr.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
+						xhr.send("uname="+user_name+"&upwd="+user_upwd);
+				}
+		</script>
+</html>
